@@ -48,3 +48,28 @@ with col_audit:
             st.success("Ticket #0921 created and sent to BBMP portal.")
     else:
         st.write("Click a **Red Alert Node** on the map to run GeoAI verification.")
+        
+
+
+st.header("📢 Citizen Engagement Portal")
+st.write("Report a 'Logic Failure' in your neighborhood for AI verification.")
+
+uploaded_file = st.file_uploader("Upload Image of Drain", type=["jpg", "png", "jpeg"])
+
+if uploaded_file is not None:
+    # 1. Run AI Verification on User Upload
+    user_img, user_conf = run_detection(uploaded_file)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image(user_img, caption="User Submitted Image (AI Analyzed)")
+    
+    with col2:
+        if user_conf > 70: # Verification threshold
+            st.success(f"✅ VERIFIED: Blockage detected ({user_conf}%).")
+            st.info("Status: Logged to Public Integrity Dashboard.")
+            # Trigger Ticketing
+            t = generate_ticket("Citizen_Report_01", {"label": "Blocked", "confidence": user_conf}, {"lat": 13.0, "lng": 77.5})
+            st.json(t)
+        else:
+            st.warning("⚠️ UNVERIFIED: No significant blockage detected by GeoAI.")
