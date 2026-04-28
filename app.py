@@ -9,25 +9,24 @@ st.set_page_config(page_title="URBAN-TRACE | URBAN-TRACE", layout="wide")
 st.markdown("""
     <style>
 
-    /* Mega Heading for Sidebar */
-    .sidebar-title {
-        font-size: 3.5rem !important; /* Large Hero Size */
-        font-weight: 800 !important;
-        line-height: 1 !important;
-        padding-top: 0px !important;
-        background: linear-gradient(90deg, #2E5BFF, #1A44D4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: -10px !important;
-    }
-    
-    .sidebar-tagline {
-        font-size: 1.1rem !important;
-        font-weight: 400 !important;
-        color:black !important;
-        opacity: 0.8;
-    }  
+   /* Targeted Heading Polish */
+[data-testid="stSidebarNav"] + div h1, 
+.st-emotion-cache-10trblm h1 { 
+    font-size: 2.5rem !important; /* Increases Heading Size */
+    font-weight: 800 !important;
+    color: #2E5BFF !important; /* Sutra Blue */
+    letter-spacing: -0.05em !important;
+    margin-bottom: 0px !important;
+}
 
+/* Sidebar Title Specifics */
+section[data-testid="stSidebar"] .stMarkdown h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    background: -webkit-linear-gradient(#2E5BFF, #1A44D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
     
     /* Main Background & Font */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -91,13 +90,17 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- SIDEBAR: SYSTEM CONTROL ---
+
 with st.sidebar:
-    # Use Markdown with a custom class for total control over font size
-    st.markdown('<p class="sidebar-title">🏙️URBAN<br>TRACE</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sidebar-tagline">GeoAI Verification Engine</p>', unsafe_allow_html=True)
+    # Large, bold heading
+    st.markdown("# URBAN TRACE") 
+    st.markdown("*GeoAI Verification Engine*") # Sub-heading
     
     st.divider()
+    
     selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
+    
+    # Rest of your sidebar...
     st.divider()
     # Hardcoded stats for stability
     st.metric(label="Network Integrity Score", value="68.4%", delta="-1.2%")
