@@ -35,7 +35,7 @@ col_left, col_right = st.columns([1.5, 1])
 with col_left:
     st.subheader("📍 Topographical Logic Audit Map")
     # Using your high-fidelity network map image
-    st.image("map_audit.png", use_container_width=True, caption="Layer: Natural Flow Accumulation vs. Infrastructure")
+    st.image("map_placeholder.png", use_container_width=True, caption="Layer: Natural Flow Accumulation vs. Infrastructure")
     
     st.info("💡 **Logic Analysis:** Drainage segments in RED indicate elevation traps where the natural slope contradicts the current physical pipe network.")
 
