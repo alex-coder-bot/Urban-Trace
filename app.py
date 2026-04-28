@@ -9,24 +9,28 @@ st.set_page_config(page_title="URBAN-TRACE | URBAN-TRACE", layout="wide")
 st.markdown("""
     <style>
 
-   /* Targeted Heading Polish */
-[data-testid="stSidebarNav"] + div h1, 
-.st-emotion-cache-10trblm h1 { 
-    font-size: 2.5rem !important; /* Increases Heading Size */
-    font-weight: 800 !important;
-    color: #83e7f2 !important; /* Sutra Blue */
-    letter-spacing: -0.05em !important;
-    margin-bottom: 0px !important;
-}
-
-/* Sidebar Title Specifics */
-section[data-testid="stSidebar"] .stMarkdown h1 {
-    font-size: 2.2rem !important;
-    line-height: 1.2;
-    background: -webkit-linear-gradient(#2E5BFF, #1A44D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+   st.markdown("""
+    <style>
+    /* Mega Heading for Sidebar */
+    .sidebar-title {
+        font-size: 3.5rem !important; /* Large Hero Size */
+        font-weight: 800 !important;
+        line-height: 1 !important;
+        padding-top: 0px !important;
+        background: linear-gradient(90deg, #2E5BFF, #1A44D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: -10px !important;
+    }
+    
+    .sidebar-tagline {
+        font-size: 1.1rem !important;
+        font-weight: 400 !important;
+        color: #1E293B !important;
+        opacity: 0.8;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
     /* Main Background & Font */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
