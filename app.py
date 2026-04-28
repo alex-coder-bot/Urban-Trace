@@ -93,7 +93,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
 with st.sidebar:
     # Large, bold heading
-    st.markdown("🏙️ # URBAN TRACE") 
+    st.markdown("# 🏙️ URBAN TRACE") 
     st.markdown("*GeoAI Verification Engine*") # Sub-heading
     
     st.divider()
