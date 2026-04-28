@@ -92,10 +92,9 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 # --- SIDEBAR: SYSTEM CONTROL ---
 
 with st.sidebar:
-    # Large, bold heading
-    st.markdown("# URBAN TRACE") 
-    st.markdown("*GeoAI Verification Engine*") # Sub-heading
-    
+    # This combines the emoji and text inside the styled class
+    st.markdown('<p class="sidebar-title">🏙️ URBAN<br>TRACE</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sidebar-tagline">GeoAI Verification Engine</p>', unsafe_allow_html=True)
     st.divider()
     
     selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
