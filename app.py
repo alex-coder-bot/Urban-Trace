@@ -38,7 +38,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
     /* Sidebar Styling */
     section[data-testid="stSidebar"] {
-        background-color: white !important;
+        background-color: #fae8f5 !important;
         border-right: 1px solid #E2E8F0;
     }
 
