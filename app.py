@@ -18,7 +18,7 @@ st.markdown("""
 
     /* Sidebar Styling */
     section[data-testid="stSidebar"] {
-        background-color: #FFFFFF !important;
+        background-color: skyblue !important;
         border-right: 1px solid #E2E8F0;
     }
 
@@ -71,10 +71,10 @@ st.markdown("""
 
 # --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
-    st.title("🛡️ URBAN-TRACE")
+    st.title(" 🏙️URBAN-TRACE")
     st.subheader("GeoAI Verification Engine")
     
-    selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley (Pilot)", "Koramangala", "Varthur"])
+    selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
     
     st.divider()
     # Hardcoded stats for stability
@@ -90,7 +90,7 @@ with st.sidebar:
 st.markdown("### 📊 Real-Time Network Overview")
 m1, m2, m3 = st.columns(3)
 m1.metric("Integrity", "68.4%", "-1.2%")
-m2.metric("Hotspots", "14", "Critical")
+m2.metric("Hotspots", "60", "Critical")
 m3.metric("Tickets", "102", "Active")
 
 st.divider() # Adds a clean line between stats and the map
@@ -112,7 +112,7 @@ with col_right:
     
     # Feature 1: The 'Static' AI Verification
     with st.expander("View AI Diagnostic Evidence", expanded=True):
-        st.image("ai_inference.png", caption="YOLOv8 Identification: Siltation (94%) & Waste (88%)")
+        st.image("ai_inference.png", caption="YOLOv8 Identification: Clogged and Waste")
         st.caption(f"Last Scanned: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
     # Feature 2: Automated Ticketing
