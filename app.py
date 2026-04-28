@@ -66,14 +66,36 @@ st.markdown("""
         color: #1E293B;
         letter-spacing: -0.02em;
     }
+
+    
+    /* Targeted Heading Polish */
+[data-testid="stSidebarNav"] + div h1, 
+.st-emotion-cache-10trblm h1 { 
+    font-size: 2.5rem !important; /* Increases Heading Size */
+    font-weight: 800 !important;
+    color: #2E5BFF !important; /* Sutra Blue */
+    letter-spacing: -0.05em !important;
+    margin-bottom: 0px !important;
+}
+
+/* Sidebar Title Specifics */
+section[data-testid="stSidebar"] .stMarkdown h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    background: -webkit-linear-gradient(#2E5BFF, #1A44D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
     </style>
     """, unsafe_allow_html=True)
 
 # --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
-    st.title(" 🏙️URBAN-TRACE", font-size=20)
-    st.subheader("GeoAI Verification Engine")
-    
+    st.title("# 🏙️URBAN-TRACE")
+    st.subheader("*GeoAI Verification Engine*")
+    st.divider()
     selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
     
     st.divider()
