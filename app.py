@@ -93,7 +93,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
 # --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
-    st.title("🏙️#URBAN-TRACE")
+    st.title("### 🏙️ URBAN-TRACE")
     st.subheader("*GeoAI Verification Engine*")
     st.divider()
     selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
