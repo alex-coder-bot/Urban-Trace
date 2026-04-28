@@ -12,7 +12,7 @@ st.markdown("""
    /* Targeted Heading Polish */
 [data-testid="stSidebarNav"] + div h1, 
 .st-emotion-cache-10trblm h1 { 
-    font-size: 3.5rem !important; /* Increases Heading Size */
+    font-size: 5.5rem !important; /* Increases Heading Size */
     font-weight: 800 !important;
     color: black !important; /* Sutra Blue */
     letter-spacing: -0.05em !important;
