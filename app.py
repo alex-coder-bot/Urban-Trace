@@ -14,7 +14,7 @@ st.markdown("""
 .st-emotion-cache-10trblm h1 { 
     font-size: 2.5rem !important; /* Increases Heading Size */
     font-weight: 800 !important;
-    color: #2E5BFF !important; /* Sutra Blue */
+    color: #83e7f2 !important; /* Sutra Blue */
     letter-spacing: -0.05em !important;
     margin-bottom: 0px !important;
 }
