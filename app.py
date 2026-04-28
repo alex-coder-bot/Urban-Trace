@@ -12,9 +12,9 @@ st.markdown("""
    /* Targeted Heading Polish */
 [data-testid="stSidebarNav"] + div h1, 
 .st-emotion-cache-10trblm h1 { 
-    font-size: 10rem !important; /* Increases Heading Size */
+    font-size: 2.5rem !important; /* Increases Heading Size */
     font-weight: 800 !important;
-    color: black !important; /* Sutra Blue */
+    color: #2E5BFF !important; /* Sutra Blue */
     letter-spacing: -0.05em !important;
     margin-bottom: 0px !important;
 }
@@ -93,7 +93,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
 with st.sidebar:
     # Large, bold heading
-    st.markdown("🏙️ URBAN TRACE") 
+    st.markdown("# URBAN TRACE") 
     st.markdown("*GeoAI Verification Engine*") # Sub-heading
     
     st.divider()
