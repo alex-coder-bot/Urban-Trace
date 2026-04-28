@@ -33,7 +33,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
     
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
-        background-color: #F8FAFC;
+        background-color: #fae8f5;
     }
 
     /* Sidebar Styling */
