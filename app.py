@@ -44,7 +44,7 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
     /* Card-style Containers */
     div[data-testid="stMetric"] {
-        background-color: lightgrey;
+        background-color: #f5f4f2;
         border: 1px solid #E2E8F0;
         padding: 20px !important;
         border-radius: 12px !important;
