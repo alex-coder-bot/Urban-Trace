@@ -5,11 +5,67 @@ import datetime
 # --- CONFIG & THEME ---
 st.set_page_config(page_title="URBAN-TRACE | URBAN-TRACE", layout="wide")
 
-# Custom CSS for that professional 'Sutra' look
+# Custom CSS for the "Command Center" Aesthetic
 st.markdown("""
     <style>
-    .main { background-color: #f5f7f9; }
-    .stMetric { background-color: #ffffff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    /* Main Background & Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+        background-color: #F8FAFC;
+    }
+
+    /* Sidebar Styling */
+    section[data-testid="stSidebar"] {
+        background-color: #FFFFFF !important;
+        border-right: 1px solid #E2E8F0;
+    }
+
+    /* Card-style Containers */
+    div[data-testid="stMetric"] {
+        background-color: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        padding: 20px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    /* Button Styling */
+    .stButton>button {
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+        background-color: #2E5BFF;
+        color: white;
+        font-weight: 600;
+        padding: 0.6rem 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .stButton>button:hover {
+        background-color: #1A44D4;
+        box-shadow: 0 10px 15px -3px rgba(46, 91, 255, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /* Map/Image Border Styling */
+    [data-testid="stImage"] img {
+        border-radius: 12px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #E2E8F0;
+    }
+
+    /* Success/Error Message Styling */
+    div[data-testid="stNotification"] {
+        border-radius: 10px;
+    }
+    
+    /* Header Polish */
+    h1, h2, h3 {
+        color: #1E293B;
+        letter-spacing: -0.02em;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -30,6 +86,14 @@ with st.sidebar:
     st.write("**Data Source:** Open City")
 
 # --- MAIN LAYOUT ---
+# 1. Add the Global Metrics Bar here
+st.markdown("### 📊 Real-Time Network Overview")
+m1, m2, m3 = st.columns(3)
+m1.metric("Integrity", "68.4%", "-1.2%")
+m2.metric("Hotspots", "14", "Critical")
+m3.metric("Tickets", "102", "Active")
+
+st.divider() # Adds a clean line between stats and the map
 col_left, col_right = st.columns([1.5, 1])
 
 with col_left:
