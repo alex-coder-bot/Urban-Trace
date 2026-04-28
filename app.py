@@ -24,7 +24,7 @@ st.markdown("""
     .sidebar-tagline {
         font-size: 1.1rem !important;
         font-weight: 400 !important;
-        color: #1E293B !important;
+        color:black !important;
         opacity: 0.8;
     }  
 
@@ -93,7 +93,7 @@ st.markdown("""
 # --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
     # Use Markdown with a custom class for total control over font size
-    st.markdown('<p class="sidebar-title">URBAN<br>TRACE</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sidebar-title">🏙️URBAN<br>TRACE</p>', unsafe_allow_html=True)
     st.markdown('<p class="sidebar-tagline">GeoAI Verification Engine</p>', unsafe_allow_html=True)
     
     st.divider()
