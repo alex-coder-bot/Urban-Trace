@@ -71,7 +71,7 @@ st.markdown("""
 
 # --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
-    st.title(" 🏙️URBAN-TRACE")
+    st.title(" 🏙️URBAN-TRACE", font-size=20px)
     st.subheader("GeoAI Verification Engine")
     
     selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley", "Koramangala", "JP Nagar"])
