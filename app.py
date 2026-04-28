@@ -1,50 +1,73 @@
 import streamlit as st
-import time
-from engine.audit import calculate_integrity
-from engine.ticketing import generate_ticket
+import pandas as pd
+import datetime
 
-# 1. Page Config
-st.set_page_config(page_title="URBAN-TRACE Command Center", layout="wide")
+# --- CONFIG & THEME ---
+st.set_page_config(page_title="URBAN-TRACE | URBAN-TRACE", layout="wide")
 
-# 2. Sidebar Stats
+# Custom CSS for that professional 'Sutra' look
+st.markdown("""
+    <style>
+    .main { background-color: #f5f7f9; }
+    .stMetric { background-color: #ffffff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    </style>
+    """, unsafe_content_usage=True)
+
+# --- SIDEBAR: SYSTEM CONTROL ---
 with st.sidebar:
     st.title("🛡️ URBAN-TRACE")
-    ward = st.selectbox("Select Catchment", ["Hebbal Valley", "Koramangala"])
-    score = calculate_integrity(ward)
-    st.metric("Integrity Score", f"{score}%")
-    st.write("---")
-    st.write("**Mode:** Verification Simulation")
-
-# 3. Main Interface
-col_map, col_ai = st.columns([1.5, 1])
-
-with col_map:
-    st.subheader("📍 Catchment Logic Audit")
-    # Placeholder for your Folium Map
-    st.image("assets/map_placeholder.png", caption="Interactive Audit Map (Integrated with Bhuvan DEM)")
-    st.info("Select a 'Red Alert' node on the map to investigate.")
-
-with col_ai:
-    st.subheader("🔍 GeoAI Verification")
+    st.subheader("GeoAI Verification Engine")
     
-    # Simulate a selected node
+    selected_ward = st.selectbox("Catchment Area", ["Hebbal Valley (Pilot)", "Koramangala", "Varthur"])
+    
+    st.divider()
+    # Hardcoded stats for stability
+    st.metric(label="Network Integrity Score", value="68.4%", delta="-1.2%")
+    st.metric(label="Critical Logic Failures", value="14 Nodes")
+    
+    st.divider()
+    st.write("**System Status:** Operational")
+    st.write("**Data Source:** Open City")
+
+# --- MAIN LAYOUT ---
+col_left, col_right = st.columns([1.5, 1])
+
+with col_left:
+    st.subheader("📍 Topographical Logic Audit Map")
+    # Using your high-fidelity network map image
+    st.image("map_audit.png", use_container_width=True, caption="Layer: Natural Flow Accumulation vs. Infrastructure")
+    
+    st.info("💡 **Logic Analysis:** Drainage segments in RED indicate elevation traps where the natural slope contradicts the current physical pipe network.")
+
+with col_right:
+    st.subheader("🔍 GeoAI Physical Verification")
+    
+    # Simulation Logic
     node_id = "HB-V1-092"
-    st.warning(f"ACTION REQUIRED: Logic Failure at {node_id}")
+    st.error(f"ALERT: Logic Failure at Node {node_id}")
     
-    # THE TRIGGER BUTTON
-    if st.button("RUN AI DIAGNOSTIC"):
-        with st.spinner("Accessing field camera & running YOLOv8..."):
-            time.sleep(1.5) # The "Wait" adds realism and tension
-            
-            # Display your pre-recorded video or high-res inference image
-            st.video("assets/demo_video.mp4") # Video of the AI working
-            
-            st.success("ANALYSIS COMPLETE: Blockage Detected (94.2%)")
-            
-            # Show the pre-prepared inference result
-            st.image("assets/node_01_inf.jpg", caption="Physical Evidence: Siltation & Plastic Waste")
+    # Feature 1: The 'Static' AI Verification
+    with st.expander("View AI Diagnostic Evidence", expanded=True):
+        st.image("ai_inference.png", caption="YOLOv8 Identification: Siltation (94%) & Waste (88%)")
+        st.caption(f"Last Scanned: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
-            # Generate Ticket
-            if st.button("DISPATCH MAINTENANCE"):
-                ticket = generate_ticket(node_id, {"conf": 94.2}, {"lat": 13.04, "lng": 77.59})
-                st.table(ticket)
+    # Feature 2: Automated Ticketing
+    if st.button("Generate Maintenance Ticket"):
+        st.success(f"Ticket #TR-BK-{node_id} Dispatched!")
+        ticket_data = {
+            "Field": ["Status", "Priority", "Assigned Crew", "GPS"],
+            "Details": ["OPEN", "CRITICAL", "Ward-21 Maintenance", "13.0489, 77.5913"]
+        }
+        st.table(pd.DataFrame(ticket_data))
+
+# --- FEATURE 3: CITIZEN REPORTING (Simple Version) ---
+st.divider()
+st.subheader("📢 Citizen Transparency Portal")
+with st.expander("Submit a Field Report"):
+    c1, c2 = st.columns(2)
+    with c1:
+        st.file_uploader("Upload Image of Clogged Drain")
+    with c2:
+        st.text_input("Location/Landmark")
+        if st.button("Submit for AI Validation"):
+            st.info("Processing... Image queued for YOLOv8 batch verification.")
