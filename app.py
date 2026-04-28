@@ -38,13 +38,13 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
 
     /* Sidebar Styling */
     section[data-testid="stSidebar"] {
-        background-color: lightgrey !important;
+        background-color: white !important;
         border-right: 1px solid #E2E8F0;
     }
 
     /* Card-style Containers */
     div[data-testid="stMetric"] {
-        background-color: #FFFFFF;
+        background-color: lightgrey;
         border: 1px solid #E2E8F0;
         padding: 20px !important;
         border-radius: 12px !important;
