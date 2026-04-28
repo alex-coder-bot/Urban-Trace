@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#2E5BFF"         # A clean professional blue
+backgroundColor = "#F5F7F9"      # Light grey background (not stark white)
+secondaryBackgroundColor = "#FFFFFF" # White sidebars/cards
+textColor = "#1E1E1E"            # Dark grey text for readability
+font = "sans serif"
+
+[server]
+headless = true
+port = 8501
+enableCORS = false
